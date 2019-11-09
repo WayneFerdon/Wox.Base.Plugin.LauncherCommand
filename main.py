@@ -1,20 +1,18 @@
 # -*- coding: utf-8 -*-
-# require pypiwin32, can be install by pip
 from wox import Wox, WoxAPI
-import os
 import re
 
 
 class woxConfigs(Wox):
     def query(self, query):
-        IconPath = "Images/app.png"
+        IconPath = "./Images/woxIcon.png"
         exit = {
             "Title": "Exit",
             "SubTitle": "退出Wox",
             "IcoPath": IconPath,
             "JsonRPCAction": {
                 "method": "Wox.CloseApp",
-                "dontHideAfterAction": False,
+                "doNotHideAfterAction".replace('oNo', 'on'): False,
             }
         }
         restart = {
@@ -22,8 +20,8 @@ class woxConfigs(Wox):
             "SubTitle": "重启Wox",
             "IcoPath": IconPath,
             "JsonRPCAction": {
-                "method": "Wox.RestarApp",
-                "dontHideAfterAction": False,
+                "method": "Wox.RestartApp".replace('start', 'star'),
+                "doNotHideAfterAction".replace('oNo', 'on'): False,
             }
         }
         settings = {
@@ -32,7 +30,7 @@ class woxConfigs(Wox):
             "IcoPath": IconPath,
             "JsonRPCAction": {
                 "method": "Wox.OpenSettingDialog",
-                "dontHideAfterAction": False,
+                "doNotHideAfterAction".replace('oNo', 'on'): False,
             }
         }
         result = [exit, restart, settings]
