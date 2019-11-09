@@ -4,7 +4,7 @@ import re
 
 
 class woxConfigs(Wox):
-    def query(self, query):
+    def query(self, queryString):
         IconPath = "./Images/woxIcon.png"
         exit = {
             "Title": "Exit",
@@ -34,11 +34,10 @@ class woxConfigs(Wox):
             }
         }
         result = [exit, restart, settings]
-        query = query.replace(" ", "")
-        q = query.lower()
+        queryStringLower = queryString.lower()
         # pattern = ".*?".join(q)
         # regex = re.compile(pattern)
-        regex = re.compile(q)
+        regex = re.compile(queryStringLower)
         for item in result:
             match = regex.search(item["Title"].lower())
             if not match:
