@@ -4,7 +4,8 @@ import re
 
 
 class woxConfigs(Wox):
-    def query(self, queryString):
+    @classmethod
+    def query(cls, queryString):
         IconPath = "./Images/woxIcon.png"
         exit = {
             "Title": "Exit",
@@ -12,7 +13,7 @@ class woxConfigs(Wox):
             "IcoPath": IconPath,
             "JsonRPCAction": {
                 "method": "Wox.CloseApp",
-                "doNotHideAfterAction".replace('oNo', 'on'): False,
+                "dontHideAfterAction": False
             }
         }
         restart = {
@@ -20,8 +21,8 @@ class woxConfigs(Wox):
             "SubTitle": "重启Wox",
             "IcoPath": IconPath,
             "JsonRPCAction": {
-                "method": "Wox.RestartApp".replace('start', 'star'),
-                "doNotHideAfterAction".replace('oNo', 'on'): False,
+                "method": "Wox.RestarApp",
+                "dontHideAfterAction": False
             }
         }
         settings = {
@@ -30,14 +31,13 @@ class woxConfigs(Wox):
             "IcoPath": IconPath,
             "JsonRPCAction": {
                 "method": "Wox.OpenSettingDialog",
-                "doNotHideAfterAction".replace('oNo', 'on'): False,
+                "dontHideAfterAction": False
             }
         }
         result = [exit, restart, settings]
-        queryStringLower = queryString.lower()
         # pattern = ".*?".join(q)
         # regex = re.compile(pattern)
-        regex = re.compile(queryStringLower)
+        regex = re.compile(queryString.lower())
         for item in result:
             match = regex.search(item["Title"].lower())
             if not match:

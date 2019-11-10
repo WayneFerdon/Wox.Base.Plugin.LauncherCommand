@@ -1,5 +1,5 @@
 {
-    "ID": "2a4e484e-76ee-a5d3-aba2-c16f5e5c328f",
+    "ID": "2a4e484e-76ee-a5d3-aba2-c26f5e5c328f",
     "ActionKeyword": "wox",
     "Name": "WoxCommand",
     "Description": "WoxCommand",
@@ -7,6 +7,6 @@
     "Version": "1.0.0",
     "Language": "python",
     "Website": "https://github.com/wayneferdon",
-    "IcoPath": "./Images/woxIcon",
+    "IcoPath": "./Images/woxIcon.png",
     "ExecuteFileName": "main.py"
 }
