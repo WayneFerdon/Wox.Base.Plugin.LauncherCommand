@@ -1,12 +1,12 @@
 {
-    "ID":"2a4e484e-76ee-a5d3-aba2-c16f5e5c328f",
-    "ActionKeyword":"wox",
-    "Name":"WoxCommand",
-    "Description":"WoxCommand",
-    "Author":"Wayne Custaf Laqinoa Ferdon",
-    "Version":"1.0.0",
-    "Language":"python",
-    "Website":"https://github.com/wayneferdon",
-    "IcoPath":"Images/app.png",
-    "ExecuteFileName":"main.py"
+    "ID": "2a4e484e-76ee-a5d3-aba2-c16f5e5c328f",
+    "ActionKeyword": "wox",
+    "Name": "WoxCommand",
+    "Description": "WoxCommand",
+    "Author": "Wayne Custaf Laqinoa Ferdon",
+    "Version": "1.0.0",
+    "Language": "python",
+    "Website": "https://github.com/wayneferdon",
+    "IcoPath": "./Images/woxIcon",
+    "ExecuteFileName": "main.py"
 }
