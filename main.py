@@ -34,7 +34,25 @@ class woxConfigs(Wox):
                 "dontHideAfterAction": False
             }
         }
-        result = [exit, restart, settings]
+        reload = {
+            "Title": "Reload Plugin Data",
+            "SubTitle": "重新加载插件",
+            "IcoPath": IconPath,
+            "JsonRPCAction": {
+                "method": "Wox.ReloadAllPluginData",
+                "dontHideAfterAction": False
+            }
+        }
+        update = {
+            "Title": "Check for Wox Update",
+            "SubTitle": "检查更新",
+            "IcoPath": IconPath,
+            "JsonRPCAction": {
+                "method": "Wox.CheckForNewUpdate",
+                "dontHideAfterAction": False
+            }
+        }
+        result = [exit, restart, settings, reload, update]
         # pattern = ".*?".join(q)
         # regex = re.compile(pattern)
         regex = re.compile(queryString.lower())
