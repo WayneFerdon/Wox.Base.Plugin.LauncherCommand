@@ -36,7 +36,7 @@ class woxConfigs(Wox):
         }
         reload = {
             "Title": "Reload Plugin Data",
-            "SubTitle": "重新加载插件",
+            "SubTitle": "重载插件数据",
             "IcoPath": IconPath,
             "JsonRPCAction": {
                 "method": "Wox.ReloadAllPluginData",
