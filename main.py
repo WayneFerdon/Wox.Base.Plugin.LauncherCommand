@@ -2,8 +2,8 @@
 # Author: wayneferdon wayneferdon@hotmail.com
 # Date: 2022-02-12 06:25:55
 # LastEditors: wayneferdon wayneferdon@hotmail.com
-# LastEditTime: 2022-10-05 18:16:11
-# FilePath: \Wox.Plugin.WoxCommand\main.py
+# LastEditTime: 2022-10-07 19:37:33
+# FilePath: \Wox.Plugin.ChromeBookmarksc:\Users\WayneFerdon\AppData\Local\Wox\app-1.4.1196\Plugins\Wox.Plugin.WoxCommand\main.py
 # ----------------------------------------------------------------
 # Copyright (c) 2022 by Wayne Ferdon Studio. All rights reserved.
 # Licensed to the .NET Foundation under one or more agreements.
@@ -19,7 +19,7 @@ class WoxCommand(WoxQuery):
     def query(cls, queryString):
         IconPath = "./Images/woxIcon.png"
         exit = WoxResult('Exit', '退出Wox', IconPath, None, "Wox.CloseApp", True).toDict()
-        restart = WoxResult('Restart Exit', '重启Wox', IconPath, None, "Wox.RestarApp", True).toDict()
+        restart = WoxResult('Restart Wox', '重启Wox', IconPath, None, "Wox.RestarApp", True).toDict()
         settings = WoxResult('Settings', '设置', IconPath, None, "Wox.OpenSettingDialog", True).toDict()
         reload = WoxResult('Reload Plugin Data', '重载插件数据', IconPath, None, "Wox.ReloadAllPluginData", True).toDict()
         update = WoxResult('Check for Wox Update', '检查更新', IconPath, None, "Wox.CheckForNewUpdate", True).toDict()
