@@ -1,12 +1,12 @@
 {
-    "ID": "FD99050F1DC7E6B57AD92CDEFE6CAB9D",
-    "ActionKeyword": "wox",
-    "Name": "WoxCommand",
-    "Description": "WoxCommand",
+    "ID": "FD99050F1DC7E6B57AD92CDEFE6CAC9D",
+    "ActionKeyword": "settings",
+    "Name": "LauncherCommand",
+    "Description": "LauncherCommand",
     "Author": "Wayne Custaf Laqinoa Ferdon",
     "Version": "1.0.0",
     "Language": "python",
     "Website": "https://github.com/wayneferdon",
-    "IcoPath": "./Images/woxIcon.png",
+    "IcoPath": "./Images/Icon.png",
     "ExecuteFileName": "main.py"
 }

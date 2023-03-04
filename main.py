@@ -1,9 +1,9 @@
 # ----------------------------------------------------------------
 # Author: wayneferdon wayneferdon@hotmail.com
 # Date: 2022-02-12 06:25:55
-# LastEditors: wayneferdon wayneferdon@hotmail.com
-# LastEditTime: 2022-10-07 19:37:33
-# FilePath: \Wox.Plugin.ChromeBookmarksc:\Users\WayneFerdon\AppData\Local\Wox\app-1.4.1196\Plugins\Wox.Plugin.WoxCommand\main.py
+# LastEditors: WayneFerdon wayneferdon@hotmail.com
+# LastEditTime: 2023-03-04 14:16:53
+# FilePath: \Flow.Launcher.Plugin.LauncherCommand\main.py
 # ----------------------------------------------------------------
 # Copyright (c) 2022 by Wayne Ferdon Studio. All rights reserved.
 # Licensed to the .NET Foundation under one or more agreements.
@@ -11,18 +11,18 @@
 # See the LICENSE file in the project root for more information.
 # ----------------------------------------------------------------
 
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-s
 from RegexList import *
-from WoxQuery import *
+from Query import *
 
-class WoxCommand(WoxQuery):
+class Command(Query):
     def query(cls, queryString):
-        IconPath = "./Images/woxIcon.png"
-        exit = WoxResult('Exit', '退出Wox', IconPath, None, "Wox.CloseApp", True).toDict()
-        restart = WoxResult('Restart Wox', '重启Wox', IconPath, None, "Wox.RestarApp", True).toDict()
-        settings = WoxResult('Settings', '设置', IconPath, None, "Wox.OpenSettingDialog", True).toDict()
-        reload = WoxResult('Reload Plugin Data', '重载插件数据', IconPath, None, "Wox.ReloadAllPluginData", True).toDict()
-        update = WoxResult('Check for Wox Update', '检查更新', IconPath, None, "Wox.CheckForNewUpdate", True).toDict()
+        IconPath = "./Images/Icon.png"
+        exit = QueryResult('Exit ' + Launcher.Name, '退出' + Launcher.Name, IconPath, None, Launcher.GetAPIName(Launcher.API.CloseApp), True).toDict()
+        restart = QueryResult('Restart ' + Launcher.Name, '重启' + Launcher.Name, IconPath, None, Launcher.GetAPIName(Launcher.API.RestartApp), True).toDict()
+        settings = QueryResult('Settings', '设置', IconPath, None, Launcher.GetAPIName(Launcher.API.OpenSettingDialog), True).toDict()
+        reload = QueryResult('Reload Plugin Data', '重载插件数据', IconPath, None,Launcher.GetAPIName(Launcher.API.ReloadAllPluginData), True).toDict()
+        update = QueryResult('Check for {} Update'.format(Launcher.Name), '检查更新', IconPath, None, Launcher.GetAPIName(Launcher.API.CheckForNewUpdate), True).toDict()
 
         resultList = [exit, restart, settings, reload, update]
         results = list()
@@ -33,4 +33,4 @@ class WoxCommand(WoxQuery):
         return results
 
 if __name__ == "__main__":
-    WoxCommand()
+    Command()
