@@ -2,8 +2,8 @@
 # Author: wayneferdon wayneferdon@hotmail.com
 # Date: 2022-02-12 06:25:55
 # LastEditors: WayneFerdon wayneferdon@hotmail.com
-# LastEditTime: 2023-04-03 01:07:12
-# FilePath: \Wox.Base.Plugin.LauncherCommand\main.py
+# LastEditTime: 2023-04-04 22:19:50
+# FilePath: \Plugins\Wox.Base.Plugin.LauncherCommand\main.py
 # ----------------------------------------------------------------
 # Copyright (c) 2022 by Wayne Ferdon Studio. All rights reserved.
 # Licensed to the .NET Foundation under one or more agreements.
@@ -17,21 +17,35 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
 from WoxPluginBase_Query import *
 
 class Command(Query):
-    def query(cls, queryString):
-        IconPath = "./Images/Icon.png"
-        exit = QueryResult('Exit ' + Launcher.Name, '退出' + Launcher.Name, IconPath, None, Launcher.GetAPIName(Launcher.API.CloseApp), True).toDict()
-        restart = QueryResult('Restart ' + Launcher.Name, '重启' + Launcher.Name, IconPath, None, Launcher.GetAPIName(Launcher.API.RestartApp), True).toDict()
-        settings = QueryResult('Settings', '设置', IconPath, None, Launcher.GetAPIName(Launcher.API.OpenSettingDialog), True).toDict()
-        reload = QueryResult('Reload Plugin Data', '重载插件数据', IconPath, None,Launcher.GetAPIName(Launcher.API.ReloadAllPluginData), True).toDict()
-        update = QueryResult('Check for {} Update'.format(Launcher.Name), '检查更新', IconPath, None, Launcher.GetAPIName(Launcher.API.CheckForNewUpdate), True).toDict()
-
-        resultList = [exit, restart, settings, reload, update]
+    Icon = './Images/Icon.png'
+    SupportedAPIs = [
+        Launcher.API.OpenSettingDialog,
+        Launcher.API.ReloadAllPluginData,
+        Launcher.API.CheckForNewUpdate,
+        Launcher.API.RestartApp,
+        Launcher.API.CloseApp # Launcher.API.CloseApp might not working sometimes while the launcher is run as Administrator, in which the launcher might just hide launcher instead
+    ]
+    def query(self, queryString):
+        resultList = list()
+        for api in Command.SupportedAPIs:
+            resultList.append(self.getAPIResult(api))
         results = list()
         regex = RegexList(queryString)
         for result in resultList:
-            if regex.match(result["Title"]):
-                results.append(result)
+            if not regex.match(result["Title"]):
+                continue
+            results.append(result)
         return results
+    
+    def getAPIResult(self, api:Launcher.API):
+        return QueryResult(
+            Launcher.GetAPIName(api),
+            Launcher.GetAPIName(api, Launcher.GetLanguage()),
+            Command.Icon,
+            None,
+            Launcher.GetAPI(api),
+            True
+        ).toDict()
 
 if __name__ == "__main__":
     Command()
