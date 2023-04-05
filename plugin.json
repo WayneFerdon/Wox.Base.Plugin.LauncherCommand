@@ -1,12 +1,1 @@
-{
-    "ID": "8b9f010a-e8f1-4388-84e9-95dc7316a5af",
-    "ActionKeyword": "settings",
-    "Name": "LauncherCommand",
-    "Description": "LauncherCommand",
-    "Author": "Wayne Custaf Laqinoa Ferdon",
-    "Version": "1.0.0",
-    "Language": "python",
-    "Website": "https://github.com/wayneferdon/Wox.Base.Plugin.LauncherCommand",
-    "IcoPath": "./Images/Icon.png",
-    "ExecuteFileName": "main.py"
-}
+{"ID": "8b9f010a-e8f1-4388-84e9-95dc7316a5af", "ActionKeyword": "settings", "Name": "LauncherCommand", "Description": "LauncherCommand", "Author": "Wayne Custaf Laqinoa Ferdon", "Version": "1.0.0", "Language": "python", "Website": "https://github.com/wayneferdon/Wox.Base.Plugin.LauncherCommand", "IcoPath": "..\\WoxPluginBase_Query\\Images\\Icon_Flow.Launcher.png", "ExecuteFileName": "main.py"}
