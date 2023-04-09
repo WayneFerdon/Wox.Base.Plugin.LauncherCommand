@@ -2,8 +2,8 @@
 # Author: wayneferdon wayneferdon@hotmail.com
 # Date: 2022-02-12 06:25:55
 # LastEditors: WayneFerdon wayneferdon@hotmail.com
-# LastEditTime: 2023-04-05 05:22:58
-# FilePath: \Plugins\Wox.Base.Plugin.LauncherCommand\main.py
+# LastEditTime: 2023-04-09 10:45:36
+# FilePath: \FlowLauncher\Plugins\Wox.Base.Plugin.LauncherCommand\main.py
 # ----------------------------------------------------------------
 # Copyright (c) 2022 by Wayne Ferdon Studio. All rights reserved.
 # Licensed to the .NET Foundation under one or more agreements.
@@ -19,11 +19,11 @@ from WoxPluginBase_Query import *
 class Command(QueryPlugin):
     Plugin.setPlatformAsPluginIcon()
     SupportedAPIs = [
-        Launcher.API.OpenSettingDialog,
-        Launcher.API.ReloadAllPluginData,
-        Launcher.API.CheckForNewUpdate,
-        Launcher.API.RestartApp,
-        Launcher.API.CloseApp # API.CloseApp might not working sometimes while the launcher is run as Administrator, in which the launcher might just hide launcher instead
+        LauncherAPI.OpenSettingDialog,
+        LauncherAPI.ReloadAllPluginData,
+        LauncherAPI.CheckForNewUpdate,
+        LauncherAPI.RestartApp,
+        LauncherAPI.CloseApp
     ]
     
     def query(self, queryString):
@@ -39,13 +39,13 @@ class Command(QueryPlugin):
         return results
     
     @staticmethod
-    def getAPIResult(api:Launcher.API):
+    def getAPIResult(api:LauncherAPI):
         return QueryResult(
             api.getDescription(),
             api.getDescription(Launcher.language),
             Plugin.defaultIcon,
             None,
-            api.name,
+            api.API_name,
             True
         ).toDict()
 
